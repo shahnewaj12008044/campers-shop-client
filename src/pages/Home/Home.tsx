@@ -1,9 +1,11 @@
+import { Hero } from "./Hero/Hero";
+
 const Home = () => {
   return (
-       <div>
-           <h1>Welcome to Home Page</h1>
-        </div>
-);
+    <div className="z-9">
+      <Hero></Hero>
+    </div>
+  );
 };
 
 export default Home;
