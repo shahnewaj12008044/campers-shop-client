@@ -10,9 +10,10 @@ import App from "./App.tsx";
 
 import Products from "./pages/Products/Products.tsx";
 import ProductManagement from "./pages/ProductManagement/ProductManagement.tsx";
-import About from "./pages/About/About.tsx";
+
 import Home from "./pages/Home/Home.tsx";
 import ErrorPage from "./components/shared/ErrorPage.tsx";
+import AboutUs from "./pages/about us/AboutUs.tsx";
 
 const router = createBrowserRouter([
   {
@@ -39,7 +40,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <About />,
+        element: <AboutUs />,
       },
       {
         path: "/error",
