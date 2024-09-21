@@ -12,11 +12,13 @@ import Products from "./pages/Products/Products.tsx";
 import ProductManagement from "./pages/ProductManagement/ProductManagement.tsx";
 import About from "./pages/About/About.tsx";
 import Home from "./pages/Home/Home.tsx";
+import ErrorPage from "./components/shared/ErrorPage.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         index: true,
@@ -38,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/error",
+        element:<ErrorPage></ErrorPage>,
       },
     ],
   },

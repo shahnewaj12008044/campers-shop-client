@@ -56,6 +56,19 @@
     --chart-5: 340 75% 55%
   }
 }
+
+.btn-primary {
+  @apply bg-lime-400 text-[#020C29] font-bold hover:bg-[#020C29] hover:text-lime-400 !important;
+}
+
+@layer utilities {
+  .custom-transition {
+    @apply hover:transition hover:transform hover:scale-125 hover:-translate-y-1 hover:duration-150 hover:ease-in-out ;
+  }
+}
+
+
+
 @layer base {
   * {
     @apply border-border;

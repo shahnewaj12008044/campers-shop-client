@@ -137,7 +137,7 @@ export const Hero = () => {
         </CarouselContent>
       </Carousel>
       <div>
-        <Button className="hover:bg-lime-400 bg-lime-600 font-bold text-xl">
+        <Button className="btn-primary text-xl">
           Shop Now
         </Button>
       </div>

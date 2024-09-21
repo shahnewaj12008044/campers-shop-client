@@ -18,7 +18,8 @@ const items = [
 
 const Footer = () => {
   return (
-    <div className="w-full relative mt-5 bg-[#020C29] py-6 px-8 text-gray-300">
+    <div className="w-full relative  bg-[#020C29] py-6 px-8 text-gray-300">
+        
     <div className="flex flex-col items-center">
       <Link to="/" className="flex items-center justify-center gap-2 mb-5">
         <img
@@ -92,7 +93,7 @@ const Footer = () => {
             return (
               <x.icon
                 key={index}
-                className="size-6 hover:text-orange-600 hover:transition hover:transform hover:scale-125 hover:duration-1500 hover:delay-1400 hover:ease-in-out cursor-pointer"
+                className="size-6 cursor-pointer hover:text-orange-500 custom-transition"
               />
             );
           })}

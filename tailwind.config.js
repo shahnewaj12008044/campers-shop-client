@@ -7,6 +7,9 @@ export default {
   ],
   theme: {
   	extend: {
+		transitionDuration: {
+			'1500': '1500ms',
+		  },
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
@@ -54,7 +57,12 @@ export default {
   				'5': 'hsl(var(--chart-5))'
   			}
   		}
-  	}
+  	},
+	//   variants: {
+	// 	extend: {
+	// 	  transitionDuration: ['hover'],
+	// 	},
+	//   },
   },
   plugins: [require("tailwindcss-animate")],
 }

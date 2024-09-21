@@ -4,7 +4,7 @@ import Footer from "./components/shared/Footer/Footer";
 
 function App() {
   return (
-    <div>
+    <div className="bg-slate-200">
       <Navbar></Navbar>
      <div className="min-h-screen">
      <Outlet></Outlet>
