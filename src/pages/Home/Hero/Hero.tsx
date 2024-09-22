@@ -5,7 +5,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-
 } from "@/components/ui/carousel";
 import banner1 from "./../../../assets/pictures/hero/banner1.jpg";
 import banner2 from "./../../../assets/pictures/hero/banner2.jpg";
@@ -18,6 +17,7 @@ import banner8 from "./../../../assets/pictures/hero/banner8.jpg";
 import banner9 from "./../../../assets/pictures/hero/banner9.jpg";
 import banner10 from "./../../../assets/pictures/hero/banner10.jpg";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 export const Hero = () => {
   const slides = [
@@ -137,9 +137,10 @@ export const Hero = () => {
         </CarouselContent>
       </Carousel>
       <div>
-        <Button className="btn-primary text-xl">
-          Shop Now
-        </Button>
+        <Link to="/products">
+          {" "}
+          <Button className="btn-primary text-xl">Shop Now</Button>
+        </Link>
       </div>
     </div>
   );

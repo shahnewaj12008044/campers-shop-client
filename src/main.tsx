@@ -14,6 +14,10 @@ import ProductManagement from "./pages/ProductManagement/ProductManagement.tsx";
 import Home from "./pages/Home/Home.tsx";
 import ErrorPage from "./components/shared/ErrorPage.tsx";
 import AboutUs from "./pages/about us/AboutUs.tsx";
+import ProductDetails from "./pages/ProductDetailsPage/ProductDetails.tsx";
+import { Toaster } from 'sonner'
+import '@smastrom/react-rating/style.css'
+import Cart from "./pages/Cart/Cart.tsx";
 
 const router = createBrowserRouter([
   {
@@ -43,9 +47,14 @@ const router = createBrowserRouter([
         element: <AboutUs />,
       },
       {
-        path: "/error",
-        element:<ErrorPage></ErrorPage>,
+        path: "/product-details/:id",
+        element:<ProductDetails />,
       },
+      {
+        path: "/cart",
+        element:<Cart />,
+      },
+     
     ],
   },
 ]);
@@ -56,6 +65,7 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Provider store={store}>
       <RouterProvider router={router}></RouterProvider>
+      <Toaster position="bottom-right"></Toaster>
     </Provider>
   </StrictMode>
 );

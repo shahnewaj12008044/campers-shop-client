@@ -10,21 +10,13 @@ import { useGetFeaturedProductQuery } from "@/redux/features/product/productApi"
 import { TProduct } from "../BestSellingProducts/BestSellingProduct";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import FadeLoader from "react-spinners/Fadeloader";
+
+import Loader from "@/components/shared/Loader";
 
 const FeaturedProducts = () => {
   const { data, isLoading } = useGetFeaturedProductQuery({});
 
-  if (isLoading)
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <FadeLoader
-          color={"#020C29"}
-          aria-label="Loading Spinner"
-          data-testid="loader"
-        />
-      </div>
-    );
+  if (isLoading) return <Loader></Loader>;
 
   return (
     <div className="md:container mx-auto my-8">

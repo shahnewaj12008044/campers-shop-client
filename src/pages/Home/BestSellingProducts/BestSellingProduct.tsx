@@ -1,8 +1,9 @@
-import FadeLoader from "react-spinners/Fadeloader";
+
 import { Button } from "@/components/ui/button";
 import { useGetAllProductQuery } from "@/redux/features/product/productApi";
 import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
+import Loader from "@/components/shared/Loader";
 
 export type TProduct = {
   _id: string;
@@ -13,16 +14,8 @@ export type TProduct = {
 };
 const BestSelling = () => {
   const { data, isLoading } = useGetAllProductQuery({});
-  if (isLoading)
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <FadeLoader
-          color={"#020C29"}
-          aria-label="Loading Spinner"
-          data-testid="loader"
-        />
-      </div>
-    );
+  if (isLoading) return <Loader></Loader>;
+
 
   return (
     <div className="md:conteiner  px-8">

@@ -11,8 +11,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Search from "./Search";
-
-
+import { Link } from "react-router-dom";
 
 type TQueryParams = {
   search?: string;
@@ -32,7 +31,7 @@ type TProduct = {
 const Products = () => {
   const [queryParams, setQueryParams] = useState<TQueryParams>({});
   const { data, refetch, isLoading } = useGetAllProductQuery(queryParams);
-  console.log(data);
+  // console.log(data);
 
   useEffect(() => {
     refetch();
@@ -51,11 +50,17 @@ const Products = () => {
 
   return (
     <div className="md:container mx-auto px-8 my-8 lg:px-0">
-      <Search queryParams = {queryParams} setQueryParams={setQueryParams}></Search>
+      <Search
+        queryParams={queryParams}
+        setQueryParams={setQueryParams}
+      ></Search>
       {/* product section */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 min-h-80">
         {data?.data?.map((product: TProduct) => (
-          <Card key={product?._id} className="relative flex flex-col shadow-md hover:shadow-blue-700 h-full">
+          <Card
+            key={product?._id}
+            className="relative flex flex-col shadow-md hover:shadow-blue-700 h-full"
+          >
             <CardContent className="flex-grow p-4 image-fluid">
               <div className="p-2 ">
                 <img
@@ -67,14 +72,17 @@ const Products = () => {
             </CardContent>
             <CardHeader className="p-4">
               <CardTitle>{product.name}</CardTitle>
+              <hr/>
               <CardDescription>{`${product.description.substring(
                 0,
                 50
               )}...`}</CardDescription>
-              <p>{product.price}</p>
-            </CardHeader>
-            <CardFooter className="mt-auto p-4">
-              <Button className="btn-primary w-full">See Details</Button>
+              <p>Price:{product.price}</p>
+            </CardHeader >
+            <CardFooter className="mt-auto p-4 w-full">
+              <Link to={`/product-details/${product?._id}`} className="w-full" >
+                <Button className="btn-primary w-full">See Details</Button>
+              </Link>
             </CardFooter>
           </Card>
         ))}

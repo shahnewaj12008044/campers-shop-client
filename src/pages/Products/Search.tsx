@@ -48,7 +48,7 @@ const Search: React.FC<SearchProps> = ({ setQueryParams, queryParams }) => {
   };
 
   const toggleSort = () => {
-    const newSort = sort === "price" ? "price" : "-price";
+    const newSort = sort === "price" ? "-price" : "price";
     setSort(newSort);
     handleFilterChange("sort", newSort);
   };
@@ -147,7 +147,7 @@ const Search: React.FC<SearchProps> = ({ setQueryParams, queryParams }) => {
           onClick={toggleSort}
           className="font-semibold border-gray-500"
         >
-          Sort: {sort === "price:1" ? "Low to High" : "High to Low"}
+          Sort: {sort === "-price" ? "Low to High" : "High to Low"}
         </Button>
       </div>
     </div>
