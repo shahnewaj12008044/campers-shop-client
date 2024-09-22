@@ -3,10 +3,21 @@ import { baseApi } from "@/redux/api/baseApi";
 const productApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getAllProduct: builder.query({
-      query: () => {
+      query: ({ search, price }) => {
+        let queryString = `/products?`;
+        if (search) queryString += `searchTerm=${search}&`;
+        if(price){
+          const priceRange = price.split("-")
+          console.log(priceRange)
+          queryString +=`minPrice=${priceRange[0]}&maxPrice=${priceRange[1]}`
+          console.log("inside",queryString)
+        }
+
+        // console.log(queryString)
+
         return {
           method: "GET",
-          url: "/products",
+          url: queryString,
         };
       },
       providesTags: ["product"],

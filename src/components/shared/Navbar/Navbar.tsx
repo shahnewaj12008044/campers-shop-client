@@ -51,7 +51,7 @@ const Navbar = () => {
               `font-medium flex items-center ${
                 isActive
                   ? "text-lime-400"
-                  : "text-lime-400 hover:text-emerald-500"
+                  : "text-lime-400 hover:text-lime-600"
               }`
             }
           >
