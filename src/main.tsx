@@ -18,6 +18,9 @@ import ProductDetails from "./pages/ProductDetailsPage/ProductDetails.tsx";
 import { Toaster } from 'sonner'
 import '@smastrom/react-rating/style.css'
 import Cart from "./pages/Cart/Cart.tsx";
+import Checkout from "./pages/Checkout/Checkout.tsx";
+import PaymentSuccess from "./pages/PaymentSuccess/PaymentSuccess.tsx";
+
 
 const router = createBrowserRouter([
   {
@@ -54,6 +57,16 @@ const router = createBrowserRouter([
         path: "/cart",
         element:<Cart />,
       },
+      {
+        path: "/checkout",
+        element:<Checkout />,
+      },
+     
+      {
+        path: "/payment-success",
+        element:<PaymentSuccess />,
+      },
+     
      
     ],
   },

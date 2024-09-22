@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { useCreateOrderMutation } from "@/redux/features/order/orderApi";
+import { useUpdateproductMutation } from "@/redux/features/product/productApi";
 
 
 import { useAppSelector } from "@/redux/hook";
@@ -21,40 +23,43 @@ const Checkout = () => {
   const [updateproduct] = useUpdateproductMutation();
   const navigate = useNavigate();
 
+  console.log(cart)
+  const orderProduct = cart.map(item=>{return{product:item._id,quantity:item.neededQuantity}})
+  console.log(orderProduct)
 
   const onSubmit = async (data: FieldValues) => {
     const orderData = {
       name: data.name,
       email: data.email,
-      phone: data.phone,
-      deliveryAddress: data.deliveryAddress,
+      number: data.phone,
+      address: data.deliveryAddress,
       totalPrice: totalPrice,
-      status: "pending",
-      productId: cart[0]._id,
+      cashOnDelivery:true,
+      products: orderProduct,
     
     };
     try {
       const result = await createPayment(orderData).unwrap();
-      console.log(result);
+ 
       const updateProductData = cart.map((item) => ({
         id: item._id, 
-        quantity: item.quantity,
-        stock: item.stock
+        neededQuantity: item.neededQuantity,
+        quantity: item.quantity
       }));
       const updateResults = await Promise.all(
         updateProductData.map((item) => {
-            const update = item.stock - item.quantity;
-          return updateproduct({ id: item.id, data: {stock: update} }).unwrap();
+            const update = item.quantity - item.neededQuantity;
+          return updateproduct({ id: item.id, data: {quantity: update} }).unwrap();
         })
       );
-      console.log("Update Results:", updateResults);
+      // console.log("Update Results:", updateResults);
 
     
       if (result?.success && updateResults.every((res) => res?.success)) {
         toast.success("Order placed successfully!");
       }
       reset()
-      navigate("/success")
+      navigate("/payment-success")
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (err) {
       toast.error("Error placing order");
@@ -149,12 +154,12 @@ const Checkout = () => {
         </div>
         <div className="text-center">
           {payment === "cash" ? (
-            <Button  type="submit" className="mt-10 px-20 bg-[#CB1836] text-white hover:bg-gray-600">
+            <Button  type="submit" className="mt-10 px-20 btn-primary">
               Place Order
             </Button>
           ) : (
             <Link to={"/stripe"}>
-              <Button type="submit" className="mt-10 bg-[#CB1836] text-white hover:bg-gray-600">
+              <Button type="submit" className="mt-10 btn-primary">
                 Place Order
               </Button>
             </Link>
@@ -162,22 +167,22 @@ const Checkout = () => {
         </div>
       </form>
       <div>
-        <h2 className="text-xl font-bold mb-4 hover:text-[#CB1836]">Order Summary</h2>
+        <h2 className="text-xl font-bold mb-4 hover:text-[#020C29]">Order Summary</h2>
         {cart?.map((item) => (
           <div key={item._id} className="flex justify-between mb-4">
             <div>
               <div className="flex gap-2">
                 <img
-                  className="object-cover rounded-md w-20 h-20 border-[#CB1836]"
+                  className="object-cover rounded-md w-20 h-20 border-[#020C29]"
                   src={item.image}
                   alt={item.name}
                 />
-                <p className="text-center flex items-center font-semibold hover:text-[#CB1836]">
+                <p className="text-center flex items-center font-semibold hover:text-lime-500">
                   {item.name.slice(0, 25)}...
                 </p>
               </div>
             </div>
-            <div className="text-[#CB1836]">Price: ${item.price}</div>
+            <div className="text-[#020C29]">Price: ${item.price}</div>
           </div>
         ))}
         <div className="flex justify-between font-bold text-lg">

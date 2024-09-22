@@ -1,4 +1,3 @@
-
 import Loader from "@/components/shared/Loader";
 import { Button } from "@/components/ui/button";
 import {
@@ -10,7 +9,6 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import {
-  
   incrementProductQuantity,
   decrementProductQuantity,
   removeProductFromCart,
@@ -25,11 +23,6 @@ import Swal from "sweetalert2";
 import { MdDeleteOutline } from "react-icons/md";
 import { IoMdAdd } from "react-icons/io";
 import { FaMinus } from "react-icons/fa";
-
-
-
-
-
 
 const Cart = () => {
   const navigate = useNavigate();
@@ -110,10 +103,10 @@ const Cart = () => {
                     <TableHead className="text-right">Actions</TableHead>
                   </TableRow>
                 </TableHeader>
-                <TableBody>
+                <TableBody className="">
                   {cart?.map((item) => (
-                    <TableRow key={item._id}>
-                      <TableCell className="w-1/2 bg-slate-200 rounded-lg shadow-md">
+                    <TableRow className="" key={item._id}>
+                      <TableCell className="md:w-1/2 bg-slate-200 rounded-lg py-4 shadow-md">
                         <div className="flex items-center space-x-4">
                           <img
                             className="object-cover rounded-md w-20 h-20"
@@ -139,7 +132,6 @@ const Cart = () => {
                             className="border border-gray-300 p-1"
                           >
                             <FaMinus />
-
                           </Button>
                           <span className="text-lg font-semibold text-gray-900">
                             {item.neededQuantity}
@@ -149,8 +141,7 @@ const Cart = () => {
                             variant="ghost"
                             className="border border-gray-300 p-1"
                           >
-                        <IoMdAdd className="font-bold text-xl text-lime-700"/>
-
+                            <IoMdAdd className="font-bold text-xl text-lime-700" />
                           </Button>
                         </div>
                       </TableCell>
@@ -164,8 +155,7 @@ const Cart = () => {
                           className=" bg-red-700 hover:bg-lime-400 hover:text-[#020C29]"
                           onClick={() => handleDeleteItem(item._id)}
                         >
-                         <MdDeleteOutline className="size-6 font-bold" />
-
+                          <MdDeleteOutline className="size-6 font-bold" />
                         </Button>
                       </TableCell>
                     </TableRow>
