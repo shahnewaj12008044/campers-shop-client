@@ -1,13 +1,12 @@
 # Campers Shop Frontend
 
-This project is a sample implementation of a Campers Shop service application using Typescript, React, Redux.
+This project is a sample implementation of a Campers Shop service application using Typescript, React, and Redux.
 
 ---
 
 ## Live Link
 
-https://66f0fa48756056804813f482--admirable-kashata-bef9e9.netlify.app/
-
+https://66f171639ba64e1ccc946573--admirable-kashata-bef9e9.netlify.app/
 
 ---
 
@@ -22,7 +21,7 @@ https://66f0fa48756056804813f482--admirable-kashata-bef9e9.netlify.app/
 - React router
 - Typescript
 - Tailwind CSS
-- Shad
+- Shadcn ui
 
 ---
 
