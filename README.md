@@ -1,3 +1,63 @@
+# Campers Shop Frontend
+
+This project is a sample implementation of a Campers Shop service application using Typescript, React, Redux.
+
+---
+
+## Live Link
+
+https://66f0f19f60bee98050626dba--admirable-kashata-bef9e9.netlify.app/
+
+
+---
+
+
+
+
+
+## Technologies Used
+
+- React
+- Redux
+- React router
+- Typescript
+- Tailwind CSS
+- Shad
+
+---
+
+# How to run the application locally
+
+1. Clone the repository
+
+```
+https://github.com/shahnewaj12008044/campers-shop-client.git
+```
+
+2. Project open
+
+```
+cd campers-shop-client
+```
+
+3. install the required packages
+
+```
+npm i
+```
+
+
+
+4. Run the Application locally
+
+```
+npm run dev
+```
+
+
+
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
