@@ -23,9 +23,10 @@ const Checkout = () => {
   const [updateproduct] = useUpdateproductMutation();
   const navigate = useNavigate();
 
-  console.log(cart)
+
+  // console.log(cart)
   const orderProduct = cart.map(item=>{return{product:item._id,quantity:item.neededQuantity}})
-  console.log(orderProduct)
+  // console.log(orderProduct)
 
   const onSubmit = async (data: FieldValues) => {
     const orderData = {
@@ -52,6 +53,7 @@ const Checkout = () => {
           return updateproduct({ id: item.id, data: {quantity: update} }).unwrap();
         })
       );
+      
       // console.log("Update Results:", updateResults);
 
     
