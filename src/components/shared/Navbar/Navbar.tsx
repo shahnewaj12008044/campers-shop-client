@@ -18,7 +18,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="bg-[#020C29] w-full flex flex-col md:flex-row justify-between items-center py-4 mx-auto px-4">
+    <div className="bg-[#020C29] w-full flex  md:flex-row justify-between items-center py-4 mx-auto px-4">
   <Link to="/" className="flex items-center gap-2 mb-4 md:mb-0">
     <img
       className="w-12 h-12 lg:w-16 lg:h-16 border-2 border-lime-400 rounded-full"
